@@ -1,4 +1,5 @@
 package jhotel;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,16 +19,16 @@ public class CustomerController {
             DatabaseCustomer.addCustomer(customer);
         } catch(Exception ex) {
             ex.getMessage();
-		   return null; 
+            return null;
         };
 
         return customer;
     }
 
     @RequestMapping("/getcustomer/{id}")
-        public Customer getCust(@PathVariable int id) {
-            Customer customer = DatabaseCustomer.getCustomer(id);
-            return customer;
+    public Customer getCust(@PathVariable int id) {
+        Customer customer = DatabaseCustomer.getCustomer(id);
+        return customer;
     }
 
 }
